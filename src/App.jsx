@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { CaretLeft } from "@phosphor-icons/react";
 import { THEMES } from "./data/content.js";
-import GradientBg from "./components/GradientBg.jsx";
+import PixelSky from "./components/PixelSky.jsx";
 import EnterScreen from "./components/EnterScreen.jsx";
 import HomeScreen from "./components/HomeScreen.jsx";
 import TopicsScreen from "./components/TopicsScreen.jsx";
@@ -68,7 +68,8 @@ export default function App() {
 
   return (
     <>
-      <GradientBg accentRgb={accentRgb} />
+      <PixelSky />
+      <div className="sky-scrim" aria-hidden="true" />
 
       <AnimatePresence>
         {!entered && <EnterScreen key="enter" onEnter={enter} />}

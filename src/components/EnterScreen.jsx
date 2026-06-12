@@ -1,8 +1,9 @@
 import { motion } from "motion/react";
+import VoxelIsland from "./VoxelIsland.jsx";
 
 const ease = [0.25, 0.1, 0.25, 1];
 
-// Opening screen: title + subtitle + Enter button, each fading up in sequence.
+// Opening screen: floating voxel island over the title + Enter button.
 export default function EnterScreen({ onEnter }) {
   return (
     <motion.div
@@ -11,6 +12,14 @@ export default function EnterScreen({ onEnter }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.9, ease }}
     >
+      <motion.div
+        className="island-stage"
+        initial={{ opacity: 0, y: 18, scale: 0.92 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1.1, delay: 0.15, ease }}
+      >
+        <VoxelIsland />
+      </motion.div>
       <motion.div
         id="enter-logo"
         initial={{ opacity: 0, y: 24 }}
