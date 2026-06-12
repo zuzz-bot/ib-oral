@@ -21,12 +21,15 @@ export default function InstaxCard({
   floatAnim,
   accent = "#888",
   entranceDelay,
+  tilt = true,
   onHoverIn,
   onHoverOut,
   onClick,
   exit = null,
 }) {
-  const { ref, onMouseMove, onMouseLeave } = useTilt(rot, floatAnim);
+  const tiltApi = useTilt(rot, floatAnim);
+  const ref = tiltApi.ref;
+  const onMouseMove = tilt ? tiltApi.onMouseMove : undefined;
 
   // Apply the leave animations imperatively when `exit` flips.
   useEffect(() => {
@@ -53,7 +56,7 @@ export default function InstaxCard({
       style={{ "--rot": `${rot}deg`, animation: floatAnim }}
       onMouseMove={onMouseMove}
       onMouseLeave={() => {
-        onMouseLeave();
+        if (tilt) tiltApi.onMouseLeave();
         onHoverOut?.();
       }}
       onMouseEnter={onHoverIn}

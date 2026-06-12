@@ -179,6 +179,41 @@ body {
   overflow: visible;
 }
 
+/* draggable / scrollable infinite strip (home themes) */
+.photo-row.drag-row {
+  justify-content: flex-start;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 56px max(40px, 8vw);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-x;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior-x: contain;
+}
+.photo-row.drag-row::-webkit-scrollbar { display: none; }
+.photo-row.drag-row:active { cursor: grabbing; }
+.photo-row.drag-row .instax { scroll-snap-align: none; }
+
+.home-hint {
+  margin-top: 22px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c3cde0;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+}
+
 /* ── INSTAX CARD ── */
 .instax {
   cursor: pointer;

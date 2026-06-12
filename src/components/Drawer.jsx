@@ -24,6 +24,7 @@ import QuestionsTab from "./tabs/QuestionsTab.jsx";
 import PhrasesTab from "./tabs/PhrasesTab.jsx";
 import IBCriteriaTab from "./tabs/IBCriteriaTab.jsx";
 import { EXTRA_VOCAB } from "../data/extraVocab.js";
+import { SUBTOPIC_COLORS } from "../data/subtopicColors.js";
 
 const TABS = [
   { k: "overview", l: "Overview", Icon: SquaresFour },
@@ -45,7 +46,9 @@ export default function Drawer({ topic, theme, onClose }) {
   const [tab, setTab] = useState("overview");
   const { get, set } = useProgress();
   const data = DATA[topic];
-  const accent = theme?.accent || "#fff";
+  // Each subtopic has its own accent; the theme tag keeps the theme colour.
+  const accent = SUBTOPIC_COLORS[topic] || theme?.accent || "#fff";
+  const themeColor = theme?.accent || "#888";
   if (!data) return null;
 
   const cur = get(topic);
@@ -72,7 +75,7 @@ export default function Drawer({ topic, theme, onClose }) {
       </button>
 
       <div className="drawer-header">
-        <span className="drawer-theme-tag" style={{ color: accent }}>
+        <span className="drawer-theme-tag" style={{ color: themeColor }}>
           {theme?.label}
         </span>
         <div className="drawer-topic-name">{topic}</div>
