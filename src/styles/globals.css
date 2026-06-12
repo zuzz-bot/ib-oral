@@ -216,43 +216,45 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  /* cinematic colour grade — keeps the photo vivid and varied, just richer
-     and a touch moodier; full vibrance on hover */
-  filter: saturate(1.08) contrast(1.14) brightness(0.86);
+  /* bright, vibrant grade — punchy and uplifting (Spotify Wrapped energy),
+     colours pop even more on hover */
+  filter: saturate(1.18) contrast(1.05) brightness(1.02);
   transform: scale(1.04);
   transition: filter 0.6s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
   user-select: none;
 }
 .instax:hover .instax-img {
-  filter: saturate(1.2) contrast(1.08) brightness(1.02);
+  filter: saturate(1.28) contrast(1.04) brightness(1.07);
   transform: scale(1.09);
 }
-/* faint themed light in one corner — subtle, never washes the colour out */
+/* whisper of themed light — just enough to tie cards to their theme */
 .instax-tint {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background: radial-gradient(
-    80% 65% at 30% 4%,
+    85% 70% at 30% 2%,
     var(--accent, #888) 0%,
-    transparent 60%
+    transparent 62%
   );
   mix-blend-mode: soft-light;
-  opacity: 0.5;
+  opacity: 0.28;
   transition: opacity 0.6s ease;
 }
 .instax:hover .instax-tint {
-  opacity: 0.28;
+  opacity: 0.15;
 }
-/* gentle vignette for depth + label legibility */
+/* very light bottom shade only — keeps photos bright, aids depth */
 .instax-shade {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(130% 110% at 50% 32%, transparent 52%, rgba(0, 0, 0, 0.46) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, transparent 32%, rgba(0, 0, 0, 0.46) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(0, 0, 0, 0.28) 100%
+  );
 }
 /* subtle "Open →" affordance revealed on hover */
 .instax-open {

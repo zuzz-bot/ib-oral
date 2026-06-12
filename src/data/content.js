@@ -1,38 +1,40 @@
 // AUTO-GENERATED from the original ib_oral_database.html — do not hand-edit data.
 // Themes, photos, IB descriptions, ghost quotes, and the full topic DATA object.
 
-// Theme cover photos — dark editorial / album-cover style, varied in colour.
+// Theme cover photos — vibrant, modern, uplifting (Apple / Nat Geo / Spotify Wrapped).
 export const THEMES = [
   { id:"social",      label:"Social Organization", accent:"#4a9eff", rgb:"74,158,255",
-    photo:"https://images.unsplash.com/photo-1606143412458-acc5f86de897?w=800&q=90&auto=format&fit=crop",
+    photo:"https://images.unsplash.com/photo-1772723246501-b108bc8a4d8e?w=800&q=90&auto=format&fit=crop",
     rot: -3, topics:["Volunteering","Law & Order","Relationships"] },
   { id:"identities",  label:"Identities",           accent:"#b98fff", rgb:"185,143,255",
-    photo:"https://images.unsplash.com/photo-1557701472-b7ea9af8aa9a?w=800&q=90&auto=format&fit=crop",
+    photo:"https://images.unsplash.com/photo-1535928968605-9418aa1e574c?w=800&q=90&auto=format&fit=crop",
     rot: 2, topics:["Subcultures","Mental Health"] },
   { id:"experiences", label:"Experiences",           accent:"#ffb347", rgb:"255,179,71",
-    photo:"https://images.unsplash.com/photo-1536766768598-e09213fdcf22?w=800&q=90&auto=format&fit=crop",
+    photo:"https://images.unsplash.com/photo-1607068798195-d26a9703b277?w=800&q=90&auto=format&fit=crop",
     rot: -1.5, topics:["Travel","Migration"] },
   { id:"planet",      label:"Sharing the Planet",    accent:"#52d68a", rgb:"82,214,138",
-    photo:"https://images.pexels.com/photos/33396501/pexels-photo-33396501.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&fit=crop",
+    photo:"https://images.unsplash.com/photo-1534709153997-d6659469f951?w=800&q=90&auto=format&fit=crop",
     rot: 3, topics:["Environment","Poverty"] },
   { id:"ingenuity",   label:"Human Ingenuity",       accent:"#ff6b6b", rgb:"255,107,107",
-    photo:"https://images.pexels.com/photos/30748683/pexels-photo-30748683.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&fit=crop",
+    photo:"https://images.unsplash.com/photo-1566055909643-a51b4271aa47?w=800&q=90&auto=format&fit=crop",
     rot: -2.5, topics:["Scientific Innovation","Communication & Media","Artistic Expressions"] }
 ];
 
+// Topic photos — vibrant and uplifting to match the themes. Law & Order and
+// Poverty keep a respectful, serious image (festive treatment would be tone-deaf).
 export const TOPIC_PHOTOS = {
-  "Volunteering":          "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700&q=92&auto=format&fit=crop&crop=faces,center",
+  "Volunteering":          "https://images.unsplash.com/photo-1632312045004-494c905db7d2?w=700&q=90&auto=format&fit=crop",
   "Law & Order":           "https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Relationships":         "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=700&q=92&auto=format&fit=crop&crop=faces,center",
-  "Subcultures":           "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Mental Health":         "https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Travel":                "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Migration":             "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Environment":           "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=700&q=92&auto=format&fit=crop&crop=center",
+  "Relationships":         "https://images.unsplash.com/photo-1513906029980-32d13afe6d8c?w=700&q=90&auto=format&fit=crop",
+  "Subcultures":           "https://images.unsplash.com/photo-1489993360877-883980cc7333?w=700&q=90&auto=format&fit=crop",
+  "Mental Health":         "https://images.unsplash.com/photo-1639868801168-4add16909e2b?w=700&q=90&auto=format&fit=crop",
+  "Travel":                "https://images.unsplash.com/photo-1778163182171-396f49e3c549?w=700&q=90&auto=format&fit=crop",
+  "Migration":             "https://images.unsplash.com/photo-1612322778677-8bb0b658ce8a?w=700&q=90&auto=format&fit=crop",
+  "Environment":           "https://images.unsplash.com/photo-1568404814613-df45b5a9b81b?w=700&q=90&auto=format&fit=crop",
   "Poverty":               "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Scientific Innovation": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Communication & Media": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=700&q=92&auto=format&fit=crop&crop=center",
-  "Artistic Expressions":  "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=700&q=92&auto=format&fit=crop&crop=center"
+  "Scientific Innovation": "https://images.unsplash.com/photo-1518656291-ba160b5554e9?w=700&q=90&auto=format&fit=crop",
+  "Communication & Media": "https://images.unsplash.com/photo-1532134358497-43fa3c6a02b0?w=700&q=90&auto=format&fit=crop",
+  "Artistic Expressions":  "https://images.unsplash.com/photo-1780513205286-2d0fcee268ce?w=700&q=90&auto=format&fit=crop"
 };
 
 export const IB_DESC = {
