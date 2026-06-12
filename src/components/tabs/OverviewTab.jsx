@@ -14,15 +14,16 @@ import { PHRASES } from "../../data/phrases.js";
 
 const phraseCount = PHRASES.reduce((n, g) => n + g.items.length, 0);
 
-export default function OverviewTab({ topic, data, accent, onJump }) {
+export default function OverviewTab({ topic, data, vocabCount, accent, onJump }) {
   const o = OVERVIEW[topic] || {};
+  const terms = vocabCount ?? data.vocabulary.length;
   const countryFacts =
     (data.countries.uk?.length || 0) +
     (data.countries.usa?.length || 0) +
     (data.countries.india?.length || 0);
 
   const stats = [
-    { n: data.vocabulary.length, l: "key terms" },
+    { n: terms, l: "key terms" },
     { n: countryFacts, l: "country facts" },
     { n: data.sources.length, l: "sources" },
     { n: data.questions.length, l: "questions" },
@@ -33,7 +34,7 @@ export default function OverviewTab({ topic, data, accent, onJump }) {
       k: "vocab",
       Icon: BookOpen,
       title: "Build your vocabulary",
-      sub: `${data.vocabulary.length} precise terms to raise your language band`,
+      sub: `${terms} precise terms to raise your language band`,
     },
     {
       k: "countries",

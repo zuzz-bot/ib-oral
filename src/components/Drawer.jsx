@@ -23,6 +23,7 @@ import SourcesTab from "./tabs/SourcesTab.jsx";
 import QuestionsTab from "./tabs/QuestionsTab.jsx";
 import PhrasesTab from "./tabs/PhrasesTab.jsx";
 import IBCriteriaTab from "./tabs/IBCriteriaTab.jsx";
+import { EXTRA_VOCAB } from "../data/extraVocab.js";
 
 const TABS = [
   { k: "overview", l: "Overview", Icon: SquaresFour },
@@ -48,6 +49,8 @@ export default function Drawer({ topic, theme, onClose }) {
   if (!data) return null;
 
   const cur = get(topic);
+  // Original 10 terms + the supplementary set for this topic.
+  const vocabulary = [...data.vocabulary, ...(EXTRA_VOCAB[topic] || [])];
 
   return (
     <motion.div
@@ -114,9 +117,15 @@ export default function Drawer({ topic, theme, onClose }) {
 
       <div className="drawer-content" key={tab}>
         {tab === "overview" && (
-          <OverviewTab topic={topic} data={data} accent={accent} onJump={setTab} />
+          <OverviewTab
+            topic={topic}
+            data={data}
+            vocabCount={vocabulary.length}
+            accent={accent}
+            onJump={setTab}
+          />
         )}
-        {tab === "vocab" && <VocabTab vocabulary={data.vocabulary} accent={accent} />}
+        {tab === "vocab" && <VocabTab vocabulary={vocabulary} accent={accent} />}
         {tab === "countries" && (
           <CountriesTab countries={data.countries} accent={accent} />
         )}
