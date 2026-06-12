@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/ib-oral/sw.js', { scope: '/ib-oral/' })})}
