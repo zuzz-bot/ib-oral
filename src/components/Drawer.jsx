@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import {
   X,
+  SquaresFour,
   BookOpen,
   Globe,
   LinkSimple,
@@ -15,6 +16,7 @@ import {
 } from "@phosphor-icons/react";
 import { DATA } from "../data/content.js";
 import { useProgress } from "../hooks/useProgress.js";
+import OverviewTab from "./tabs/OverviewTab.jsx";
 import VocabTab from "./tabs/VocabTab.jsx";
 import CountriesTab from "./tabs/CountriesTab.jsx";
 import SourcesTab from "./tabs/SourcesTab.jsx";
@@ -23,6 +25,7 @@ import PhrasesTab from "./tabs/PhrasesTab.jsx";
 import IBCriteriaTab from "./tabs/IBCriteriaTab.jsx";
 
 const TABS = [
+  { k: "overview", l: "Overview", Icon: SquaresFour },
   { k: "vocab", l: "Vocabulary", Icon: BookOpen },
   { k: "countries", l: "Countries", Icon: Globe },
   { k: "sources", l: "Sources", Icon: LinkSimple },
@@ -38,7 +41,7 @@ const PROG_STATES = [
 ];
 
 export default function Drawer({ topic, theme, onClose }) {
-  const [tab, setTab] = useState("vocab");
+  const [tab, setTab] = useState("overview");
   const { get, set } = useProgress();
   const data = DATA[topic];
   const accent = theme?.accent || "#fff";
@@ -110,6 +113,9 @@ export default function Drawer({ topic, theme, onClose }) {
       </div>
 
       <div className="drawer-content" key={tab}>
+        {tab === "overview" && (
+          <OverviewTab topic={topic} data={data} accent={accent} onJump={setTab} />
+        )}
         {tab === "vocab" && <VocabTab vocabulary={data.vocabulary} accent={accent} />}
         {tab === "countries" && (
           <CountriesTab countries={data.countries} accent={accent} />

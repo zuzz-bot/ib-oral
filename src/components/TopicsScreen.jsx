@@ -30,6 +30,10 @@ export default function TopicsScreen({ theme, onOpenTopic }) {
           {theme.label}
         </div>
         <div id="topics-ib-desc">{IB_DESC[theme.id] || ""}</div>
+        <div className="topics-hint">
+          <span style={{ color: theme.accent }}>{theme.topics.length} topics</span>
+          &nbsp;·&nbsp; tap a photo to open it
+        </div>
       </div>
       <div id="topics-row">
         {theme.topics.map((topic, i) => {
@@ -41,8 +45,9 @@ export default function TopicsScreen({ theme, onOpenTopic }) {
               imgSrc={TOPIC_PHOTOS[topic] || FALLBACK}
               label={prefix + topic}
               rot={ROTS[i % ROTS.length]}
+              accent={theme.accent}
               floatAnim={FLOAT_ANIMS[i % FLOAT_ANIMS.length]}
-              entranceClass={`au d${Math.min(i + 1, 6)}`}
+              entranceDelay={0.15 + i * 0.09}
               onClick={() => onOpenTopic(topic)}
             />
           );

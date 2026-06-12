@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "motion/react";
 import { useTilt } from "../hooks/useTilt.js";
 
 const FALLBACK =
@@ -6,16 +7,20 @@ const FALLBACK =
 
 /**
  * Instax photo card — the core visual identity.
- * Float (CSS), 3D cursor tilt + spotlight (imperative), and a click fly-up.
+ * Float (CSS), 3D cursor tilt + spotlight (imperative), click fly-up, and a
+ * per-theme coloured-light grade so every photo reads as dark editorial.
  *
- * @param exit  null | "fly" (clicked card leaves upward) | "fade" (siblings dim)
+ * @param accent        hex colour of the theme (drives the light wash)
+ * @param entranceDelay if set, the card springs in with this delay (topics grid)
+ * @param exit          null | "fly" (clicked card leaves upward) | "fade" (siblings dim)
  */
 export default function InstaxCard({
   imgSrc,
   label,
   rot = 0,
   floatAnim,
-  entranceClass = "",
+  accent = "#888",
+  entranceDelay,
   onHoverIn,
   onHoverOut,
   onClick,
@@ -41,10 +46,10 @@ export default function InstaxCard({
     }
   }, [exit, rot]);
 
-  return (
+  const card = (
     <div
       ref={ref}
-      className={`instax ${entranceClass}`}
+      className="instax"
       style={{ "--rot": `${rot}deg`, animation: floatAnim }}
       onMouseMove={onMouseMove}
       onMouseLeave={() => {
@@ -55,18 +60,43 @@ export default function InstaxCard({
       onClick={onClick}
     >
       <div className="instax-inner">
-        <img
-          className="instax-img"
-          src={imgSrc}
-          alt={label}
-          loading="eager"
-          draggable={false}
-          onError={(e) => {
-            if (e.currentTarget.src !== FALLBACK) e.currentTarget.src = FALLBACK;
-          }}
-        />
+        <div className="instax-photo">
+          <img
+            className="instax-img"
+            src={imgSrc}
+            alt={label}
+            loading="eager"
+            draggable={false}
+            onError={(e) => {
+              if (e.currentTarget.src !== FALLBACK) e.currentTarget.src = FALLBACK;
+            }}
+          />
+          <div className="instax-tint" style={{ "--accent": accent }} />
+          <div className="instax-shade" />
+        </div>
         <div className="instax-label">{label}</div>
+        <span className="instax-open" style={{ color: accent }}>
+          Open →
+        </span>
       </div>
     </div>
   );
+
+  // Topic grid cards spring in with a stagger; home cards appear with the screen.
+  if (entranceDelay != null) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 26 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.6,
+          delay: entranceDelay,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+      >
+        {card}
+      </motion.div>
+    );
+  }
+  return card;
 }

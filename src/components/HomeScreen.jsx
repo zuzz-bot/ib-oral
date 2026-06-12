@@ -39,6 +39,7 @@ export default function HomeScreen({ themes, onPickTheme, onHoverTheme }) {
             imgSrc={theme.photo}
             label={theme.label}
             rot={theme.rot}
+            accent={theme.accent}
             floatAnim={FLOAT_ANIMS[i % FLOAT_ANIMS.length]}
             onHoverIn={() => !clickedId && onHoverTheme(theme.rgb)}
             onHoverOut={() => !clickedId && onHoverTheme(null)}
