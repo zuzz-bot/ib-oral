@@ -1,21 +1,22 @@
 // AUTO-GENERATED from the original ib_oral_database.html — do not hand-edit data.
 // Themes, photos, IB descriptions, ghost quotes, and the full topic DATA object.
 
+// Theme cover photos — dark editorial / album-cover style, varied in colour.
 export const THEMES = [
   { id:"social",      label:"Social Organization", accent:"#4a9eff", rgb:"74,158,255",
-    photo:"https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=92&auto=format&fit=crop&crop=faces,center",
+    photo:"https://images.unsplash.com/photo-1606143412458-acc5f86de897?w=800&q=90&auto=format&fit=crop",
     rot: -3, topics:["Volunteering","Law & Order","Relationships"] },
   { id:"identities",  label:"Identities",           accent:"#b98fff", rgb:"185,143,255",
-    photo:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=92&auto=format&fit=crop&crop=faces,center",
+    photo:"https://images.unsplash.com/photo-1557701472-b7ea9af8aa9a?w=800&q=90&auto=format&fit=crop",
     rot: 2, topics:["Subcultures","Mental Health"] },
   { id:"experiences", label:"Experiences",           accent:"#ffb347", rgb:"255,179,71",
-    photo:"https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=92&auto=format&fit=crop&crop=center",
+    photo:"https://images.unsplash.com/photo-1536766768598-e09213fdcf22?w=800&q=90&auto=format&fit=crop",
     rot: -1.5, topics:["Travel","Migration"] },
   { id:"planet",      label:"Sharing the Planet",    accent:"#52d68a", rgb:"82,214,138",
-    photo:"https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?w=800&q=92&auto=format&fit=crop&crop=center",
+    photo:"https://images.pexels.com/photos/33396501/pexels-photo-33396501.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&fit=crop",
     rot: 3, topics:["Environment","Poverty"] },
   { id:"ingenuity",   label:"Human Ingenuity",       accent:"#ff6b6b", rgb:"255,107,107",
-    photo:"https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=92&auto=format&fit=crop&crop=center",
+    photo:"https://images.pexels.com/photos/30748683/pexels-photo-30748683.jpeg?auto=compress&cs=tinysrgb&w=800&h=900&fit=crop",
     rot: -2.5, topics:["Scientific Innovation","Communication & Media","Artistic Expressions"] }
 ];
 
