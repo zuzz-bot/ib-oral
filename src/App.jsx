@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { CaretLeft } from "@phosphor-icons/react";
 import { THEMES } from "./data/content.js";
 import PixelSky from "./components/PixelSky.jsx";
+import SkyToggle from "./components/SkyToggle.jsx";
 import EnterScreen from "./components/EnterScreen.jsx";
 import HomeScreen from "./components/HomeScreen.jsx";
 import TopicsScreen from "./components/TopicsScreen.jsx";
@@ -16,6 +17,19 @@ export default function App() {
   const [themeId, setThemeId] = useState(null);
   const [topic, setTopic] = useState(null);
   const [accentRgb, setAccentRgb] = useState(null);
+  const [skyMode, setSkyMode] = useState(() => {
+    try {
+      return localStorage.getItem("ib_oral_sky") || "auto";
+    } catch {
+      return "auto";
+    }
+  });
+  const changeSky = (m) => {
+    setSkyMode(m);
+    try {
+      localStorage.setItem("ib_oral_sky", m);
+    } catch {}
+  };
 
   const theme = themeById(themeId);
 
@@ -68,7 +82,7 @@ export default function App() {
 
   return (
     <>
-      <PixelSky />
+      <PixelSky forceNight={skyMode === "night"} />
       <div className="sky-scrim" aria-hidden="true" />
 
       <AnimatePresence>
@@ -77,6 +91,7 @@ export default function App() {
 
       {entered && (
         <div id="app">
+          <SkyToggle mode={skyMode} onChange={changeSky} />
           <AnimatePresence>
             {theme && (
               <motion.button

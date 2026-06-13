@@ -64,6 +64,52 @@ body {
     );
 }
 
+/* ── SKY MODE TOGGLE ── */
+.sky-toggle {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 50;
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  border-radius: 30px;
+  background: rgba(10, 14, 28, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+.sky-toggle button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 24px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.sky-toggle button:hover {
+  color: #fff;
+}
+.sky-toggle button.on {
+  background: rgba(255, 255, 255, 0.92);
+  color: #111;
+}
+@media (max-width: 600px) {
+  .sky-toggle {
+    top: 16px;
+    right: 16px;
+  }
+  .sky-toggle button span,
+  .sky-toggle button { font-size: 10px; }
+}
+
 /* ── LANDING ISLAND ── */
 .island-stage {
   perspective: 700px;
