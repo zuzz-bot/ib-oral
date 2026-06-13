@@ -26,7 +26,7 @@ export default function PhrasesTab({ accent }) {
       {PHRASES.map((group, gi) => {
         const Icon = ICONS[group.icon] || ChatCircle;
         return (
-          <div className={`phrase-group au d${Math.min(gi + 1, 6)}`} key={group.group}>
+          <div className="phrase-group au" style={{ "--i": gi }} key={group.group}>
             <div className="phrase-group-title">
               <Icon size={15} weight="fill" style={{ color: accent }} />
               {group.group}

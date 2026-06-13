@@ -7,9 +7,9 @@ const COUNTRIES = [
   { k: "india", n: "India", short: "India", flag: "https://flagcdn.com/w40/in.png" },
 ];
 
-function Fact({ f, accent }) {
+function Fact({ f, accent, i = 0 }) {
   return (
-    <div className="fcard">
+    <div className="fcard au" style={{ "--i": i }}>
       <div className="fl">{f.label}</div>
       <div className="fs" style={{ color: accent }}>
         {f.stat}
@@ -69,7 +69,7 @@ export default function CountriesTab({ countries, accent }) {
       {view === "single" ? (
         <div className="facts-grid">
           {(countries[active] || []).map((f, i) => (
-            <Fact key={i} f={f} accent={accent} />
+            <Fact key={i} f={f} accent={accent} i={i} />
           ))}
           {countries.tip && (
             <div className="tip-box">
@@ -92,7 +92,7 @@ export default function CountriesTab({ countries, accent }) {
                   {c.short}
                 </div>
                 {(countries[c.k] || []).map((f, i) => (
-                  <Fact key={i} f={f} accent={accent} />
+                  <Fact key={i} f={f} accent={accent} i={i} />
                 ))}
               </div>
             ))}

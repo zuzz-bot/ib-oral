@@ -118,7 +118,7 @@ export default function Drawer({ topic, theme, onClose }) {
         </div>
       </div>
 
-      <div className="drawer-content" key={tab}>
+      <div className="drawer-content" key={tab} style={{ "--accent": accent }}>
         {tab === "overview" && (
           <OverviewTab
             topic={topic}

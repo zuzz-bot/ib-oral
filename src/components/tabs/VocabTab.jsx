@@ -8,7 +8,7 @@ export default function VocabTab({ vocabulary, accent }) {
       </p>
       <div className="vocab-grid">
         {vocabulary.map((v, i) => (
-          <div key={v.word} className={`vcard au d${Math.min(i + 1, 6)}`}>
+          <div key={v.word} className="vcard au" style={{ "--i": i }}>
             <div className="vnum" style={{ color: accent }}>
               {String(i + 1).padStart(2, "0")}
             </div>

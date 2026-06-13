@@ -4,7 +4,7 @@ export default function QuestionsTab({ questions, accent }) {
   return (
     <div className="qlist">
       {questions.map((q, i) => (
-        <div key={i} className={`qcard au d${Math.min(i + 1, 6)}`}>
+        <div key={i} className="qcard au" style={{ "--i": i }}>
           <div className="qn" style={{ color: accent }}>
             <Quotes size={12} weight="fill" /> Q{i + 1}
           </div>

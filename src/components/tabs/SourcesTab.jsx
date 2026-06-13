@@ -12,7 +12,7 @@ export default function SourcesTab({ sources, accent }) {
           // The source data mixes `desc` and `description` keys.
           const desc = s.desc || s.description || "";
           return (
-            <div key={s.url + i} className={`scard au d${Math.min(i + 1, 6)}`}>
+            <div key={s.url + i} className="scard au" style={{ "--i": i }}>
               <div className="sico">
                 <ArrowSquareOut size={15} style={{ color: accent }} />
               </div>
