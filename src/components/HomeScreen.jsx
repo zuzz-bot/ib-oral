@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
+import { Microphone } from "@phosphor-icons/react";
 import InstaxCard from "./InstaxCard.jsx";
 
 const FLOAT_ANIMS = [
@@ -10,7 +11,7 @@ const FLOAT_ANIMS = [
   "f5 7.5s ease-in-out infinite .9s",
 ];
 
-export default function HomeScreen({ themes, onPickTheme, onHoverTheme }) {
+export default function HomeScreen({ themes, onPickTheme, onHoverTheme, onPractice }) {
   const [clickedKey, setClickedKey] = useState(null);
   const scroller = useRef(null);
   const drag = useRef({ active: false, startX: 0, startScroll: 0, moved: 0 });
@@ -83,6 +84,24 @@ export default function HomeScreen({ themes, onPickTheme, onHoverTheme }) {
       <div id="home-sub">
         English B &nbsp;·&nbsp; SL &nbsp;·&nbsp; Individual Oral
       </div>
+
+      <motion.button
+        className="practice-cta"
+        onClick={onPractice}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+        whileHover={{ y: -3 }}
+        whileTap={{ scale: 0.97 }}
+      >
+        <span className="practice-cta-pulse" aria-hidden="true" />
+        <Microphone size={18} weight="fill" />
+        <span className="practice-cta-text">
+          Mock oral
+          <span className="practice-cta-sub">practice the real exam</span>
+        </span>
+      </motion.button>
+
       <div
         className="photo-row drag-row"
         ref={scroller}

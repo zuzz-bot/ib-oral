@@ -58,6 +58,7 @@ export default function Drawer({ topic, theme, onClose }) {
   return (
     <motion.div
       className="drawer"
+      style={{ "--accent": accent }}
       initial={{ y: "100%" }}
       animate={{ y: 0 }}
       exit={{ y: "100%" }}

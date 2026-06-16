@@ -4,6 +4,7 @@ import { CaretLeft } from "@phosphor-icons/react";
 import { THEMES } from "./data/content.js";
 import PixelSky from "./components/PixelSky.jsx";
 import SkyToggle from "./components/SkyToggle.jsx";
+import MockOral from "./components/MockOral.jsx";
 import EnterScreen from "./components/EnterScreen.jsx";
 import HomeScreen from "./components/HomeScreen.jsx";
 import TopicsScreen from "./components/TopicsScreen.jsx";
@@ -17,6 +18,7 @@ export default function App() {
   const [themeId, setThemeId] = useState(null);
   const [topic, setTopic] = useState(null);
   const [accentRgb, setAccentRgb] = useState(null);
+  const [practiceOpen, setPracticeOpen] = useState(false);
   const [skyMode, setSkyMode] = useState(() => {
     try {
       return localStorage.getItem("ib_oral_sky") || "auto";
@@ -116,6 +118,7 @@ export default function App() {
                 themes={THEMES}
                 onPickTheme={pickTheme}
                 onHoverTheme={setAccentRgb}
+                onPractice={() => setPracticeOpen(true)}
               />
             ) : (
               <TopicsScreen key="topics" theme={theme} onOpenTopic={openTopic} />
@@ -129,6 +132,12 @@ export default function App() {
           </AnimatePresence>
         </div>
       )}
+
+      <AnimatePresence>
+        {practiceOpen && (
+          <MockOral key="mock" onClose={() => setPracticeOpen(false)} />
+        )}
+      </AnimatePresence>
 
       <Ghost />
     </>
