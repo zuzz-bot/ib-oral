@@ -5,23 +5,27 @@ import {
   Sparkle, CheckCircle, Circle, Star, Flag,
 } from "@phosphor-icons/react";
 import { THEMES, DATA } from "../data/content.js";
+import { STIMULI } from "../data/stimuli.js";
 import { ORAL_SECTIONS, AEED, IO_CRITERIA } from "../data/oralStructure.js";
 
 const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
 
 function buildExam() {
-  const sh = [...THEMES].sort(() => Math.random() - 0.5);
-  const [picT, t2, t3] = sh;
+  // Random stimulus image (people-in-context) → its theme is the picture theme.
+  const stim = pick(STIMULI);
+  const picT = THEMES.find((t) => t.label === stim.theme) || THEMES[0];
   const topicOf = (t) => pick(t.topics);
-  const picTopic = topicOf(picT);
   const qOf = (topic) => DATA[topic]?.questions || [];
+  const [t2, t3] = THEMES.filter((t) => t.label !== stim.theme).sort(
+    () => Math.random() - 0.5
+  );
   return {
     accent: picT.accent,
-    stimulus: { photo: picT.photo, theme: picT.label, topic: picTopic },
+    stimulus: { photo: stim.photo, theme: stim.theme, topic: stim.topic },
     ctx: {
-      presentation: { theme: picT.label },
-      discussion1: { theme: picT.label, questions: qOf(picTopic) },
+      presentation: { theme: stim.theme },
+      discussion1: { theme: stim.theme, questions: qOf(stim.topic) },
       discussion2: { theme: t2.label, questions: qOf(topicOf(t2)) },
       discussion3: { theme: t3.label, questions: qOf(topicOf(t3)) },
     },
