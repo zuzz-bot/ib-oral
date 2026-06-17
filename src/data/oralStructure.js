@@ -59,49 +59,63 @@ export const IO_CRITERIA = [
 // IB band descriptors are copyrighted — confirm wording with your teacher).
 export const IO_RUBRIC = {
   total: 30,
-  note: "SL Individual Oral · based on a visual stimulus · worth 30% of your grade",
+  note: "SL Individual Oral · 12–15 min (+15 min prep) · visual stimulus · worth 25% of your grade",
   criteria: [
     {
       k: "A",
       name: "Language",
       marks: 12,
       measures:
-        "How well you command spoken English — the range and accuracy of your vocabulary and grammar, plus fluency, pronunciation and register.",
+        "How successfully you command spoken English — appropriate and varied vocabulary, varied grammar, accuracy that aids communication, and pronunciation & intonation.",
       wins: [
-        "Wide, precise and varied vocabulary",
-        "Varied sentence structures, mostly accurate",
-        "Clear pronunciation & intonation that aid meaning",
-        "Natural, fluent delivery — not robotic or memorised",
+        "Varied, appropriate vocabulary (idiomatic at the top end)",
+        "A mix of basic and more complex structures, used well",
+        "Mostly accurate — minor slips don't block meaning",
+        "Pronunciation & intonation easy to follow, helping convey meaning",
       ],
-      tip: "Mix short and complex sentences, choose precise words, and modulate your voice.",
+      tip: "Mix short and complex sentences, choose precise words, and let your intonation carry meaning.",
     },
     {
-      k: "B",
-      name: "Message",
-      marks: 12,
+      k: "B1",
+      name: "Message · visual stimulus",
+      marks: 6,
       measures:
-        "How relevant, developed and well-supported your ideas are — about the picture and in the conversation — with clear links to the theme and Anglophone cultures.",
+        "How relevant your presentation is to the picture, and how well you link it to the target (Anglophone) culture.",
       wins: [
-        "Describe AND interpret the stimulus (not just list what you see)",
-        "Connect it to the theme with real examples",
-        "Develop ideas in depth and take a clear stance",
-        "Support with evidence and UK / USA / India contrasts",
+        "Stay consistently relevant to the stimulus",
+        "Go beyond surface details — describe AND interpret",
+        "Make clear links to the target culture(s)",
+        "Offer your own personal reading of the image",
       ],
-      tip: "Describe → interpret → connect to the theme → opinion with 2 arguments (Answer · Evidence · Exemplify · Data).",
+      tip: "Don't just list what you see — interpret it and tie it to the theme and Anglophone cultures.",
+    },
+    {
+      k: "B2",
+      name: "Message · conversation",
+      marks: 6,
+      measures:
+        "How relevant, appropriate and developed your answers are during the discussion.",
+      wins: [
+        "Answer the question directly and stay relevant",
+        "Develop answers in scope and depth — not one-liners",
+        "Add personal interpretation",
+        "Engage the examiner back",
+      ],
+      tip: "Answer · Evidence · Exemplify · Data — develop every answer, don't stop at one sentence.",
     },
     {
       k: "C",
       name: "Interactive skills",
       marks: 6,
       measures:
-        "How well you understand the examiner and keep the conversation going on your own.",
+        "How well you understand and sustain the conversation, on your own.",
       wins: [
-        "Understand questions the first time",
-        "Give full, developed answers — not one-liners",
-        "Keep the conversation flowing and take initiative",
-        "Ask for clarification politely when you need it",
+        "Understand questions the first time (little need to repeat)",
+        "Keep your participation sustained",
+        "Make independent contributions and take initiative",
+        "Express ideas clearly and keep the conversation going",
       ],
-      tip: "Build on your answers and help lead the conversation — don't wait to be pulled along.",
+      tip: "Lead the conversation and add your own ideas — don't wait to be pulled along.",
     },
   ],
 };
